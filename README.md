@@ -1,4 +1,8 @@
-# Shopify Interview (Users Microservice)
+# Gallery  (Users Microservice)
+
+*This repository contains code for the Users Microservice for a simple Image Repository / Gallery Application that I
+ completed as part of Shopify's Fall 2020 Internship Coding Challenge*
+
 
 ## Dependencies:
 

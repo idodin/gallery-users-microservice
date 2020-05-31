@@ -4,7 +4,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const options = {
     swaggerDefinition: {
         info: {
-            title: 'Shopify Interview Users Microservice',
+            title: 'Gallery Users Microservice',
             version: '0.0',
             description: 'Users, Authorization, and Authentication API',
         },

@@ -8,7 +8,6 @@ services:
     environment:
       - NODE_ENV=dev
       - SECRET=5h0p1fY
-      - IMAGES_URL=http://localhost:3001
     working_dir: /app
     command: npm run start:local
     network_mode: host

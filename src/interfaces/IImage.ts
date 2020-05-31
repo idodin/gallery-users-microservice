@@ -8,6 +8,7 @@ export interface IImage {
     title: string;
     isPublic: boolean;
     description: string;
+    link: string;
     createdAt: string;
     updatedAt: string;
     author: IUser;

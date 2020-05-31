@@ -8,23 +8,19 @@ export const userDBInteractions = {
     },
 
     all: (): Promise<IUserModel[]> => {
-        return User.find().select("-password").exec();
+        return User.find().select("-images -password").exec();
     },
 
     find: (userId: string, option: string = "-password"): Promise<IUserModel> => {
-        return User.findOne({ _id: userId }).select(option).exec();
+        return User.findOne({ _id: userId }).select(`-images ${option}`).exec();
     },
 
     findByEmail: (email: string, option: string = "-password"): Promise<IUserModel> => {
-        return User.findOne({ email: email }).select(option).exec();
+        return User.findOne({ email: email }).select(`-images ${option}`).exec();
     },
 
     findByUsername: (username: string, option: string = "-password"): Promise<IUserModel> => {
-        return User.findOne({username: username}).select(option).exec();
-    },
-
-    update: (userId: string, newUser: IUser): Promise<IUserModel> => {
-        return User.findByIdAndUpdate(userId, newUser, { new: true }).exec();
+        return User.findOne({username: username}).select(`-images ${option}`).exec();
     },
 
     delete: (userId: string): Promise<IUserModel> => {
