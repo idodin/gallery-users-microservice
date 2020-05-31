@@ -25,8 +25,8 @@ const userController = {
         }
         try {
             // Get User
-            const userId: string = req.params.userId;
-            const user: IUserModel = await userDBInteractions.find(userId);
+            const username: string = req.params.username;
+            const user: IUserModel = await userDBInteractions.findByUsername(username);
             // Not Found
             user ? res.status(statusCodes.SUCCESS).send(user) : res.status(statusCodes.NOT_FOUND).send({ status: statusCodes.NOT_FOUND, message: "User not found" });
         } catch (error) {

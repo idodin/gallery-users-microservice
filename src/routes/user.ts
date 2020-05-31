@@ -25,13 +25,13 @@ userRouter.get("/", userValidator("GET /users"), userController.index);
 
 /**
  * @swagger
- * /users/{userId}:
+ * /users/{username}:
  *  get:
  *      description: Gets a specific User
  *      parameters:
  *          -   in: path
- *              name: userId
- *              description: ID of the User to retrieve
+ *              name: username
+ *              description: Username of the User to retrieve
  *              schema:
  *                  type: string
  *                  required: true
@@ -43,13 +43,13 @@ userRouter.get("/", userValidator("GET /users"), userController.index);
  *          200:
  *              description: Returns specific User
  *          404:
- *              description: User with given ID not found
+ *              description: User with given username not found
  *          422:
  *              description: Validation error
  *          500:
  *              description: Internal server error
  */
-userRouter.get("/:userId", userValidator("GET /users/:userId"), userController.show);
+userRouter.get("/:username", userValidator("GET /users/:username"), userController.show);
 
 /**
  * @swagger

@@ -5,9 +5,9 @@ export function userValidator(method: string): ValidationChain[] {
         case "GET /users": {
             return [];
         }
-        case "GET /users/:userId": {
+        case "GET /users/:username": {
             return [
-                param("userId", "Invalid or missing ':userId'").exists().isMongoId()
+                param("username", "Missing ':username'").exists().isString()
             ];
         }
         case "POST /users": {
