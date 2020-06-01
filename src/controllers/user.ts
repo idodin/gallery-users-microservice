@@ -50,8 +50,7 @@ const userController = {
             // Create New
             const userData: IUser = {
                 ...req.body,
-                password: bcryptPassword.generateHash(req.body.password),
-                roles: ["user"]
+                password: bcryptPassword.generateHash(req.body.password)
             };
             let newUser: IUserModel = await userDBInteractions.create(new User(userData));
             newUser = newUser.toJSON();

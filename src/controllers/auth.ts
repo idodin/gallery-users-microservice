@@ -28,7 +28,8 @@ const authController = {
                 res.status(statusCodes.BAD_REQUEST).send({ status: statusCodes.BAD_REQUEST, message: "Invalid email or password" }); return;
             }
             // Correct password hash
-            const token = jwt.sign({id: user.id, email: user.email, role: user.role}, process.env.SECRET);
+            // Could attach claims / roles here
+            const token = jwt.sign({id: user.id, email: user.email}, process.env.SECRET);
             const userJSON = user.toJSON();
             delete userJSON.password;
             // Return JWT and User
