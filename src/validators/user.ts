@@ -1,4 +1,5 @@
 import { body, param, ValidationChain } from "express-validator/check";
+import { hasNoSpaces } from "./custom";
 
 export function userValidator(method: string): ValidationChain[] {
     switch (method) {
@@ -7,14 +8,17 @@ export function userValidator(method: string): ValidationChain[] {
         }
         case "GET /users/:username": {
             return [
-                param("username", "Missing ':username'").exists().isString()
+                param("username", "Missing ':username'").exists().isString(),
             ];
         }
         case "POST /users": {
             return [
-                body("username", "Invalid or missing 'username'").exists().isString(),
-                body("email", "Invalid or missing 'email'").exists().isEmail(),
-                body("password", "Invalid or missing 'password'").exists().isString()
+                body("username", "Missing 'username'").exists(),
+                body("username", "Invalid 'username'").isString().custom(hasNoSpaces),
+                body("email", "Missing 'email'").exists(),
+                body("email", "Invalid 'email'").isEmail(),
+                body("password", "Missing 'password'").exists(),
+                body("password", "Invalid 'password'").isString().custom(hasNoSpaces)
             ];
         }
         case "DELETE /users/:userId": {
